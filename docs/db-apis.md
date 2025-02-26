@@ -3,14 +3,17 @@
 (Beware that a DB journey is what you usually call a trip (a vehicle travelling at a certain time) and a DB trip is what you usually call a journey (result of a route search from A to B).)
 
 ## RIS::Boards
-https://apis.deutschebahn.com/db/apis/ris-boards/v1/public/
+
+<https://apis.deutschebahn.com/db/apis/ris-boards/v1/public/>
 
 EPs:
+
 * departures/<evaNo>
 * arrivals/<evaNo>
 
 Notes:
-* docs (also helpful for other RIS-based APIs below): https://developers.deutschebahn.com/db-api-marketplace/apis/product/ris-boards-transporteure/api/ris-boards-transporteure#/RISBoards_151/overview
+
+* docs (also helpful for other RIS-based APIs below): <https://developers.deutschebahn.com/db-api-marketplace/apis/product/ris-boards-transporteure/api/ris-boards-transporteure#/RISBoards_151/overview>
 * needs an API Key
 * provides remarks
 * does not provide loadFactor
@@ -19,9 +22,11 @@ Notes:
 * boards up to 12 hours
 
 ## bahnhof.de RIS
-https://www.bahnhof.de/api/boards/departures?evaNumbers=8000105&filterTransports=BUS&duration=60&locale=de
+
+<https://www.bahnhof.de/api/boards/departures?evaNumbers=8000105&filterTransports=BUS&duration=60&locale=de>
 
 Notes:
+
 * no API Key needed
 * provides remarks
 * uses RIS trip IDs
@@ -29,9 +34,11 @@ Notes:
 * boards up to 6 hours, only from current time (or unknown parameter)
 
 ## Regio Guide RIS
-https://regio-guide.de/@prd/zupo-travel-information/api/public/ri/
+
+<https://regio-guide.de/@prd/zupo-travel-information/api/public/ri/>
 
 EPs:
+
 * departure/8000105?modeOfTransport=HIGH_SPEED_TRAIN,REGIONAL_TRAIN,CITY_TRAIN,INTER_REGIONAL_TRAIN,UNKNOWN,BUS,TRAM,SUBWAY&timeStart=2024-12-11T15:08:25.678Z&timeEnd=2024-12-12T01:53:25.678&expandTimeFrame=TIME_END&&occupancy=true
 * board/arrival/<evaNo>
 * routing-search (with POST body, see regio-guide.de)
@@ -39,6 +46,7 @@ EPs:
 * journey/<journeyId-from-trip>
 
 Notes:
+
 * no API Key needed
 * no remarks in boards (or with unknown param), only some in journey
 * cancelled trips are completely missing from boards (?)
@@ -48,9 +56,11 @@ Notes:
 * routing-search returns polylines (!)
 
 ## Vendo/Movas Navigator API
-https://app.vendo.noncd.db.de/mob/
+
+<https://app.vendo.noncd.db.de/mob/>
 
 EPs:
+
 * bahnhofstafel/abfahrt
 * bahnhofstafel/ankunft
 * location/search
@@ -61,6 +71,7 @@ EPs:
 * trip/recon (polylines)
 
 Notes:
+
 * see [traffic dumps](dumps/)
 * no API Key needed
 * used by new DB Navigator
@@ -72,9 +83,11 @@ Notes:
 * limited remarks on boards
 
 ## Vendo/Movas bahn.de API
-https://int.bahn.de/web/api/
+
+<https://int.bahn.de/web/api/>
 
 EPs:
+
 * angebote/fahrplan (for route planning)
 * reiseloesung/orte
 * reiseloesung/orte/nearby
@@ -84,6 +97,7 @@ EPs:
 * reiseloesung/ankuenfte
 
 Notes:
+
 * no API Key needed
 * uses HAFAS trip IDs
 * provides loadFactor
