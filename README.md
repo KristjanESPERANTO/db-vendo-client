@@ -22,9 +22,9 @@ What doesn't work (yet, see TODO's scattered around the code):
 
 Depending on the configured profile, db-vendo-client will use multiple different DB APIs that offer varying functionality, so choose wisely:
 
-|                       | `db` Profile        | `dbnav` Profile | `dbweb` Profile
+|                       | `db` Profile        | `dbnav` Profile | `dbweb` Profile |
 | -------------         | -------------     | ------------- | ------------- |
-| no API key required   | ✅                | ✅ |  ✅ | 
+| no API key required   | ✅                | ✅ |  ✅ |
 | max duration boards   | 12h | 1h | 1h |
 | remarks               | not for boards | for boards only most important remarks | all remarks on boards and journeys |
 | cancelled trips       | contained with cancelled flag in journeys, not contained in boards | contained with cancelled flag | contained with cancelled flag |
@@ -54,13 +54,13 @@ Strictly speaking, permission is necessary to use this library with the DB APIs.
 
 Use it as a dependency, e.g. just replacing [hafas-client](https://github.com/public-transport/hafas-client/):
 
-```
+```bash
 npm i db-vendo-client
 ```
 
 See an example in [api.js](api.js). It shows how you can use `db-vendo-client` together with [hafas-rest-api](https://github.com/public-transport/hafas-rest-api/) in order to run a [FPTF](https://github.com/public-transport/friendly-public-transport-format) API server. The [Dockerfile](Dockerfile) serves this API (using the `dbnav` profile):
 
-```
+```bash
 docker run \
     -e USER_AGENT=my-awesome-program \
     -e DB_PROFILE=dbnav \
@@ -68,10 +68,10 @@ docker run \
     ghcr.io/public-transport/db-vendo-client
 ```
 
-You may want to generate a client for your programming language for this REST API using the [OpenAPI schema](docs/openapi.yaml) ([open in Swagger Editor](https://editor.swagger.io/?url=https://raw.githubusercontent.com/public-transport/db-vendo-client/refs/heads/main/docs/openapi.yaml)). Note 
+You may want to generate a client for your programming language for this REST API using the [OpenAPI schema](docs/openapi.yaml) ([open in Swagger Editor](https://editor.swagger.io/?url=https://raw.githubusercontent.com/public-transport/db-vendo-client/refs/heads/main/docs/openapi.yaml)). Note
 that this is to be seen more as a starting point for implementation, e.g. some profile-specific details like tickets are missing from this API definition.
 
-There are [community-maintained TypeScript typings available as `@types/hafas-client`](https://www.npmjs.com/package/@types/hafas-client). 
+There are [community-maintained TypeScript typings available as `@types/hafas-client`](https://www.npmjs.com/package/@types/hafas-client).
 
 > [!IMPORTANT]
 > Depending on your use case, it is very important that you employ caching, either with a simple [HTTP proxy cache](https://github.com/traines-source/time-space-train-planner/blob/master/deployments/nginx-cache.conf) in front of the REST API or by using [cached-hafas-client](https://github.com/public-transport/cached-hafas-client) (where, of course, you can just drop in a `db-vendo-client` instead of a `hafas-client` instance). Also see [db-rest](https://github.com/derhuerst/db-rest), which does this and some more plumbing.
@@ -84,10 +84,10 @@ There are [community-maintained TypeScript typings available as `@types/hafas-cl
 
 ## Related Projects
 
-- [hafas-client](https://github.com/public-transport/hafas-client/) – including further related projects
-- [hafas-rest-api](https://github.com/public-transport/hafas-rest-api/) – expose a hafas-client or db-vendo-client instance as a REST API
-- [db-rest](https://github.com/derhuerst/db-rest/) – for the legacy DB HAFAS endpoint
-- [`*.transport.rest`](https://transport.rest/) – Public APIs wrapping some HAFAS endpoints.
+* [hafas-client](https://github.com/public-transport/hafas-client/) – including further related projects
+* [hafas-rest-api](https://github.com/public-transport/hafas-rest-api/) – expose a hafas-client or db-vendo-client instance as a REST API
+* [db-rest](https://github.com/derhuerst/db-rest/) – for the legacy DB HAFAS endpoint
+* [`*.transport.rest`](https://transport.rest/) – Public APIs wrapping some HAFAS endpoints.
 
 ## Contributing
 
@@ -95,4 +95,4 @@ If you **have a question**, **found a bug** or want to **propose a feature**, pl
 
 This project needs help! Check the [list of "help wanted" Issues](https://github.com/public-transport/db-vendo-client/issues?q=is%3Aopen+is%3Aissue+label%3A%22help+wanted%22).
 
-If you're contributing code, please read the [contribution guidelines](contributing.md).
+If you're contributing code, please read the [contribution guidelines](CONTRIBUTING.md).
