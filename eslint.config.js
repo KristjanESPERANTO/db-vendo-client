@@ -5,7 +5,7 @@ import globals from 'globals';
 
 const config = [
 	eslintPluginJs.configs.recommended,
-	eslintPluginStylistic.configs['all-flat'],
+	eslintPluginStylistic.configs.all,
 	{
 		files: ['**/*.js'],
 		languageOptions: {
